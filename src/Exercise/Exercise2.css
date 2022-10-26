@@ -1,0 +1,85 @@
+.question1 {
+  display: inline-block;
+  margin: 10px;
+  border: 1px soild #eee;
+  box-shadow: 0 2px 2px #ccc;
+  padding: 20px;
+}
+
+.divHeader {
+  height: 110px;
+  background-color: red;
+  color: white;
+}
+
+.divNav {
+  background-color: green;
+  height: 40px;
+  color: white;
+}
+
+.divLeft {
+  float: left;
+  width: auto 50%;
+  
+}
+
+.divRight {
+  float: right;
+  width: auto 50%;
+
+}
+
+
+.divFooter {
+  background-color: rgba(255, 145, 0, 0.728);
+  height: 110px;
+  color: rgb(17, 17, 17);
+
+}
+.divAside {
+  background-color: rgb(102, 98, 98);
+  height: 400px;
+  color: white;
+}
+
+.divArtilec {
+  background-color: black;
+  height: 200px;
+  color: white;
+}
+
+.divSection {
+  background-color: blue;
+  height: 200px;
+  color: white;
+}
+
+.que1fTable {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.Que1_c_left {
+  float: left;
+  /* border-width: 2000; */
+  /* width: 33,33%; */
+  width: 300px;
+  /* padding: 8px 0, */
+}
+
+.Que1_c_mid {
+  float: left;
+  /* border-width: 2000; */
+  
+  width: 300px;
+  /* padding: 8px 0, */
+}
+
+.Que1_c_right {
+  float: left;
+  /* border-width: 2000; */
+  /* width: 33,33%; */
+  width: 300px;
+  /* padding: 8px 0, */
+}

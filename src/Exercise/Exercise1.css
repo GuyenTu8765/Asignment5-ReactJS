@@ -1,0 +1,13 @@
+.borders1 {
+  width: 200px;
+  height: 50px;
+  border: 1px solid rgb(8, 7, 7);
+}
+
+.bordersName {
+  width: 400px;
+  height: 50px;
+  border: 1px solid rgb(8, 7, 7);
+}
+
+
