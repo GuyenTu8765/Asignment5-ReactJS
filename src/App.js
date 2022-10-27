@@ -10,10 +10,9 @@ function App() {
       {/* <Exercise1.Question3a />
       <Exercise1.Question3b /> */}
 
-      <Exercise2.Question1aFun />
-      <Exercise2.Question1aClass />
-      {/* chuaa xong */}
-      {/* <Exercise2.Question1c /> */}
+      {/* <Exercise2.Question1aFun />
+      <Exercise2.Question1aClass /> */}
+      <Exercise2.Question1b />
 
       {/* <Exercise2.Question2/> */}
       {/* chua xong */}
