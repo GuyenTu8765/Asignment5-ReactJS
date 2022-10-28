@@ -1,20 +1,22 @@
 import React from "react";
-
-const Select = props => {
+import '../Exercise3.css'
+const SelectFrom = (props) => {
   return (
     <div className="form-group">
-      <label for={props.name}> {props.title} </label>
+      <label for={props.name} className="form-label">
+        {props.title}
+      </label>
+      <br />
       <select
-        id={props.name}
+        className="form-control"
         name={props.name}
         value={props.value}
         onChange={props.handleChange}
-        className="form-control"
       >
         <option value="" disabled>
           {props.placeholder}
         </option>
-        {props.options.map(option => {
+        {props.options.map((option) => {
           return (
             <option key={option} value={option} label={option}>
               {option}
@@ -26,4 +28,4 @@ const Select = props => {
   );
 };
 
-export default Select;
+export default SelectFrom;

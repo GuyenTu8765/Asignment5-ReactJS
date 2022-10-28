@@ -1,15 +1,15 @@
 import React from "react";
-
-const Input = props => {
+import '../Exercise3.css'
+const InputFrom = (props) => {
   //console.log(props.value);
   return (
     <div className="form-group">
       <label for={props.name} className="form-label">
         {props.title}
       </label>
+      <br />
       <input
         className="form-control"
-        id={props.name}
         name={props.name}
         type={props.inputType}
         value={props.value}
@@ -21,4 +21,4 @@ const Input = props => {
   );
 };
 
-export default Input;
+export default InputFrom;

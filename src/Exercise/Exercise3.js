@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 /* Import Components */
 
-import Input from "./Exercise2Que4/InputFrom";
-import TextArea from "./Exercise2Que4/TextAreaFrom";
-import Select from "./Exercise2Que4/SelectFrom";
-import Button from "./Exercise2Que4/ButtonFrom";
-import CheckBox from "./Exercise2Que4/CheckBoxFrom";
+import InputFrom from "./Exercise2Que4/InputFrom";
+import TextAreaFrom from "./Exercise2Que4/TextAreaFrom";
+import SelectFrom from "./Exercise2Que4/SelectFrom";
+import ButtonFrom from "./Exercise2Que4/ButtonFrom";
+import CheckBoxFrom from "./Exercise2Que4/CheckBoxFrom";
 
-class FormContainer extends Component {
+class FormContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,8 +35,8 @@ class FormContainer extends Component {
 
   /* This lifecycle hook gets executed when the component mounts */
 
-  handleFullName(e) {
-    let value = e.target.value;
+  handleFullName = (event) => {
+    let value = event.target.value;
     this.setState(
       (prevState) => ({
         newUser: {
@@ -46,10 +46,10 @@ class FormContainer extends Component {
       }),
       () => console.log(this.state.newUser)
     );
-  }
+  };
 
-  handleAge(e) {
-    let value = e.target.value;
+  handleAge = (event) => {
+    let value = event.target.value;
     this.setState(
       (prevState) => ({
         newUser: {
@@ -59,11 +59,11 @@ class FormContainer extends Component {
       }),
       () => console.log(this.state.newUser)
     );
-  }
+  };
 
-  handleInput(e) {
-    let value = e.target.value;
-    let name = e.target.name;
+  handleInput = (event) => {
+    let value = event.target.value;
+    let name = event.target.name;
     this.setState(
       (prevState) => ({
         newUser: {
@@ -73,11 +73,11 @@ class FormContainer extends Component {
       }),
       () => console.log(this.state.newUser)
     );
-  }
+  };
 
-  handleTextArea(e) {
+  handleTextArea = (event) => {
     console.log("Inside handleTextArea");
-    let value = e.target.value;
+    let value = event.target.value;
     this.setState(
       (prevState) => ({
         newUser: {
@@ -87,10 +87,10 @@ class FormContainer extends Component {
       }),
       () => console.log(this.state.newUser)
     );
-  }
+  };
 
-  handleCheckBox(e) {
-    const newSelection = e.target.value;
+  handleCheckBox = (event) => {
+    const newSelection = event.target.value;
     let newSelectionArray;
 
     if (this.state.newUser.skills.indexOf(newSelection) > -1) {
@@ -104,7 +104,7 @@ class FormContainer extends Component {
     this.setState((prevState) => ({
       newUser: { ...prevState.newUser, skills: newSelectionArray },
     }));
-  }
+  };
 
   handleFormSubmit = (event) => {
     let name = this.state.newUser.name;
@@ -127,8 +127,8 @@ class FormContainer extends Component {
     event.preventDefault();
   };
 
-  handleClearForm(e) {
-    e.preventDefault();
+  handleClearForm = (event) => {
+    event.preventDefault();
     this.setState({
       newUser: {
         name: "",
@@ -138,47 +138,44 @@ class FormContainer extends Component {
         about: "",
       },
     });
-  }
+  };
 
   render() {
     return (
-      <form className="container-fluid" onSubmit={this.handleFormSubmit}>
-        <Input
+      <form onSubmit={this.handleFormSubmit}>
+        <InputFrom
           inputType={"text"}
           title={"Full Name"}
           name={"name"}
           value={this.state.newUser.name}
           placeholder={"Enter your name"}
           handleChange={this.handleInput}
-        />{" "}
-        {/* Name of the user */}
-        <Input
+        />
+        <InputFrom
           inputType={"number"}
           name={"age"}
           title={"Age"}
           value={this.state.newUser.age}
           placeholder={"Enter your age"}
           handleChange={this.handleAge}
-        />{" "}
-        {/* Age */}
-        <Select
+        />
+        <SelectFrom
           title={"Gender"}
           name={"gender"}
           options={this.state.genderOptions}
           value={this.state.newUser.gender}
           placeholder={"Select Gender"}
           handleChange={this.handleInput}
-        />{" "}
-        {/* Age Selection */}
-        <CheckBox
+        />
+        <CheckBoxFrom
           title={"Skills"}
           name={"skills"}
           options={this.state.skillOptions}
           selectedOptions={this.state.newUser.skills}
           handleChange={this.handleCheckBox}
-        />{" "}
-        {/* Skill */}
-        <TextArea
+        />
+
+        <TextAreaFrom
           title={"About you."}
           rows={10}
           value={this.state.newUser.about}
@@ -186,21 +183,21 @@ class FormContainer extends Component {
           handleChange={this.handleTextArea}
           placeholder={"Describe your past experience and skills"}
         />
-        {/* About you */}
-        <Button
+
+        <ButtonFrom
           action={this.handleFormSubmit}
           type={"primary"}
           title={"Submit"}
           style={buttonStyle}
-        />{" "}
-        {/*Submit */}
-        <Button
+        />
+  
+        <ButtonFrom
           action={this.handleClearForm}
           type={"secondary"}
           title={"Clear"}
           style={buttonStyle}
-        />{" "}
-        {/* Clear the form */}
+        />
+
       </form>
     );
   }
@@ -208,6 +205,8 @@ class FormContainer extends Component {
 
 const buttonStyle = {
   margin: "10px 10px 10px 10px",
+  color: "rgb(11 11 226)",
+  // background-color: "#0404f0",
 };
 
 class Question2 extends React.Component {

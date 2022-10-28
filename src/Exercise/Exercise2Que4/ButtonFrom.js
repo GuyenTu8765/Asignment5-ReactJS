@@ -1,18 +1,20 @@
 import React from "react";
-
-const Button = props => {
+import '../Exercise3.css'
+const ButtonFrom = (props) => {
   console.log(props.style);
   return (
-    <button
-      style={props.style}
-      className={
-        props.type == "primary" ? "btn btn-primary" : "btn btn-secondary"
-      }
-      onClick={props.action}
-    >
-      {props.title}
-    </button>
+    <div className="from-group">
+      <button
+        style={props.style}
+        className={
+          props.type =="btn btn-primary"
+        }
+        onClick={props.action}
+      >
+        {props.title}
+      </button>
+    </div>
   );
 };
 
-export default Button;
+export default ButtonFrom;

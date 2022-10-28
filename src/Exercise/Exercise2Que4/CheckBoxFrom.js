@@ -1,13 +1,15 @@
 import React from "react";
+import '../Exercise3.css'
 
-const CheckBox = props => {
+const CheckBoxFrom = (props) => {
   return (
     <div className="form-group">
       <label for={props.name} className="form-label">
         {props.title}
       </label>
+      <br />
       <div className="checkbox">
-        {props.options.map(option => {
+        {props.options.map((option) => {
           return (
             <label key={option} className="checkbox-inline">
               <input
@@ -27,4 +29,4 @@ const CheckBox = props => {
   );
 };
 
-export default CheckBox;
+export default CheckBoxFrom;
