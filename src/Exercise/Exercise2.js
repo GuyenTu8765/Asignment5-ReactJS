@@ -1,9 +1,10 @@
 import "./Exercise2.css";
 import React from "react";
 import "antd/dist/antd.css";
-import { ThemeContext, themes } from "./ThemeContext";
+import { ThemeContext, ThemeContext1, themes } from "./ThemeContext";
 
 const MessageContext = React.createContext();
+MessageContext.displayName = "message";
 
 const ChildComponentFun = (props) => {
   return (
@@ -72,7 +73,7 @@ class Question1aClass extends React.Component {
   }
 }
 
-const ChildComponent = (Props) => {
+const ChildComponentB = (props) => {
   return (
     <ThemeContext.Consumer>
       {(theme) => (
@@ -99,15 +100,15 @@ const ChildComponent = (Props) => {
   );
 };
 
-const ParentComponent = (props) => {
+const ParentComponentB = (props) => {
   return (
     <>
-      <ChildComponent />
+      <ChildComponentB />
     </>
   );
 };
 
-class GrandParentComponent extends React.Component {
+class GrandParentComponentB extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -124,7 +125,7 @@ class GrandParentComponent extends React.Component {
   render() {
     return (
       <ThemeContext.Provider value={this.state.theme}>
-        <ParentComponent />
+        <ParentComponentB />
         <button onClick={this.changeTheme}> Change Theme</button>
       </ThemeContext.Provider>
     );
@@ -135,9 +136,90 @@ class Question1b extends React.Component {
   render() {
     return (
       <>
-        <GrandParentComponent />
+        <GrandParentComponentB />
       </>
     );
   }
 }
-export default { Question1aFun, Question1aClass, Question1b };
+
+const ChildComponentC = (props) => {
+  return (
+    <MessageContext.Consumer>
+      {(message) => (
+        <ThemeContext1.Consumer>
+          {({ theme, changeTheme }) => (
+            <>
+              <h1
+                style={{
+                  backgroundColor: theme.background,
+                  color: theme.foreground,
+                }}
+              >
+                Message from GrandParents: {message}
+              </h1>
+              <button
+                style={{
+                  backgroundColor: theme.background,
+                  color: theme.foreground,
+                }}
+              >
+                Chau da hieu
+              </button>
+              <button onClick={changeTheme}> Change Theme</button>
+            </>
+          )}
+        </ThemeContext1.Consumer>
+      )}
+    </MessageContext.Consumer>
+  );
+};
+
+const ParentComponentC = (props) => {
+  return (
+    <>
+      <ChildComponentC />
+    </>
+  );
+};
+
+class GrandParentComponentC extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: themes.dark,
+    };
+  }
+  changeTheme = () => {
+    this.setState((state) => ({
+      theme: state.theme === themes.dark ? themes.light : themes.dark,
+    }));
+  };
+
+  render() {
+    const themeAndMethod = {
+      theme: this.state.theme,
+      changeTheme: this.changeTheme,
+    };
+    const message = "CO hoc di chau";
+
+    return (
+      <MessageContext.Provider value={message}>
+        <ThemeContext1.Provider value={themeAndMethod}>
+          <ParentComponentC />
+        </ThemeContext1.Provider>
+      </MessageContext.Provider>
+    );
+  }
+}
+
+class Question1c extends React.Component {
+  render() {
+    return (
+      <>
+        <GrandParentComponentC />
+      </>
+    );
+  }
+}
+
+export default { Question1aFun, Question1aClass, Question1b, Question1c };

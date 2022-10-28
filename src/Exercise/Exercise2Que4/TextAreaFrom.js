@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextArea = (props) => {
+const TextArea = props => (
   <div className="form-group">
     <label className="form-label">{props.title}</label>
     <textarea
@@ -12,7 +12,7 @@ const TextArea = (props) => {
       onChange={props.handleChange}
       placeholder={props.placeholder}
     />
-  </div>;
-};
+  </div>
+);
 
 export default TextArea;
